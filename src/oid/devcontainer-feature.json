@@ -1,0 +1,11 @@
+{
+    "name": "OpenImageDebugger",
+    "id": "oid",
+    "version": "1.0.0",
+    "description": "Open Image Debugger is a tool for visualizing in-memory buffers during debug sessions",
+    "options": {
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
