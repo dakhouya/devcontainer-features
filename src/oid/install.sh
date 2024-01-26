@@ -13,7 +13,7 @@ check_packages() {
 install() {
     local oid_src="/tmp/oid-src"
     local oid_install="/opt/oid"
-    git clone https://github.com/OpenImageDebugger/OpenImageDebugger.git "${oid_src}"
+    git clone https://github.com/dakhouya/OpenImageDebugger.git -b bugfix/fix-qt-build-error "${oid_src}"
     cd "${oid_src}"
     git submodule init
     git submodule update
