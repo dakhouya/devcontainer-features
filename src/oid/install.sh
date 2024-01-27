@@ -9,21 +9,35 @@ check_packages() {
   fi
 }
 
+# Install qt
+install_qt() {
+    pip3 install --upgrade pip
+    pip3 install aqtinstall
+    aqt install-qt linux desktop 5.12.8 -O /opt/Qt
+}
+
 # Install depot_tools
-install() {
+install_oid() {
     local oid_src="/tmp/oid-src"
     local oid_install="/opt/oid"
-    git clone https://github.com/dakhouya/OpenImageDebugger.git -b bugfix/fix-qt-build-error "${oid_src}"
+    git clone https://github.com/OpenImageDebugger/OpenImageDebugger.git "${oid_src}"
     cd "${oid_src}"
     git submodule init
     git submodule update
 
-    cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${oid_install}"
+    cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${oid_install}" -DQt5_DIR=/opt/Qt/5.12.8/gcc_64/lib/cmake/Qt5
     cmake --build build --config Release --target install -j
     rm -rf "${oid_src}"
 }
 
 # Install dependencies
-check_packages git build-essential libpython3-dev python3-dev cmake qtbase5-dev libqt5opengl5-dev
+check_packages git \
+  build-essential \
+  libpython3-dev \
+  python3-dev \
+  python3-pip \
+  cmake \
+  libqt5opengl5-dev
 
-install
+install_qt
+install_oid

@@ -1,9 +1,0 @@
-{
-    "hello": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "features": {
-            "oid": {
-            }
-        }
-    }
-}
