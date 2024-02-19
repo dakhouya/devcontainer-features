@@ -4,6 +4,25 @@
     "version": "1.0.1",
     "description": "Open Image Debugger is a tool for visualizing in-memory buffers during debug sessions",
     "options": {
+        "version": {
+            "type": "string",
+            "default": "main",
+            "description": "Select OpenImageDebugger version to use based on git branch or tag"
+        },
+        "enableGDB": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable oid when using gdb"
+        },
+        "enableLLDB": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable oid when using lldb"
+        }
+    },
+    "capAdd": [ "SYS_PTRACE" ],
+    "containerEnv": {
+        "LD_LIBRARY_PATH": "/opt/Qt/5.12.8/gcc_64/lib:${LD_LIBRARY_PATH}"
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

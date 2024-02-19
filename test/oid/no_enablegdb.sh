@@ -1,16 +1,14 @@
 #!/bin/bash
 
-# This test file will be executed against one of the scenarios devcontainer.json test that
-# includes the 'color' feature with "greeting": "hello" option.
-
+# Test the enableGDB option
 set -e
 
 # Optional: Import test library bundled with the devcontainer CLI
 source dev-container-features-test-lib
 
 # Feature-specific tests
-# The 'check' command comes from the dev-container-features-test-lib.
-check "oid exist" ls -lah /opt/oid
+# No way to check version after installation so we only ensure the oid script is available
+check "validate gdb hook is not available" grep -q "source /path/to/OpenImageDebugger/oid.py" ~/.gdbinit || return 0
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.

@@ -1,8 +1,25 @@
 {
-    "hello": {
+    "no_enablegdb": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "oid": {
+                "enableGDB": false
+            }
+        }
+    },
+    "no_enablelldb": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "oid": {
+                "enableLLDB": false
+            }
+        }
+    },
+    "version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "oid": {
+                "version": "v1.15.10"
             }
         }
     }
