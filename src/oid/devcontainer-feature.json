@@ -1,7 +1,7 @@
 {
     "name": "OpenImageDebugger",
     "id": "oid",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Open Image Debugger is a tool for visualizing in-memory buffers during debug sessions",
     "options": {
         "version": {
