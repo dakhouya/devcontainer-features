@@ -1,12 +1,15 @@
 # Devcontainer-features
 Collection of devcontainer features
 
-## Contents
+## Available devcontainer features
 
 [oid](src/oid/README.md)
 
-### Run tests
+### Supported distributions
+- ubuntu:focal
+- ubuntu:jammy
 
+### Run tests
 Example to run tests for a specific feature
 ```bash
 # oid tests without scenarios

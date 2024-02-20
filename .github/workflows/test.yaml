@@ -15,7 +15,8 @@ jobs:
         features:
           - oid
         baseImage:
-          - debian:latest
+          - ubuntu:focal
+          - ubuntu:jammy
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
