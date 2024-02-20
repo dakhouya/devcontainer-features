@@ -15,7 +15,9 @@ Open Image Debugger is a tool for visualizing in-memory buffers during debug ses
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-
+| version | Select OpenImageDebugger version to use based on git branch or tag | string | main |
+| enableGDB | Enable oid when using gdb | boolean | true |
+| enableLLDB | Enable oid when using lldb | boolean | true |
 
 
 
