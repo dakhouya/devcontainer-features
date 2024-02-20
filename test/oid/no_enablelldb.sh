@@ -8,7 +8,7 @@ source dev-container-features-test-lib
 
 # Feature-specific tests
 # No way to check version after installation so we only ensure the oid script is available
-check "validate lldb hook is not available" grep -q "command script import /path/to/OpenImageDebugger/oid.py" ~/.lldbinit || return 0
+check "validate gdb hook is not available" bash -c "! grep -q 'command script import /opt/OpenImageDebugger/oid.py' ${HOME}/.lldb"
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.

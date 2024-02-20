@@ -3,16 +3,14 @@ Collection of devcontainer features
 
 ## Contents
 
-oid - Add link to documentation
+[oid](src/oid/README.md)
 
 ### Run tests
 
 Example to run tests for a specific feature
 ```bash
-devcontainer features test \
-               --features <feature e.g. oid>   \
-               --remote-user root \
-               --skip-scenarios   \ # Only tun test.sh
-               --base-image mcr.microsoft.com/devcontainers/base:ubuntu \
-               <devcontainer-feature-path>
+# oid tests without scenarios
+devcontainer devcontainer features test --features oid --skip-scenarios --base-image mcr.microsoft.com/devcontainers/base:ubuntu $PWD
+# oid tests with scenarios
+devcontainer devcontainer features test --features oid --base-image mcr.microsoft.com/devcontainers/base:ubuntu $PWD
 ```
