@@ -27,7 +27,7 @@ check_packages() {
 install_qt() {
     pip3 install --upgrade pip
     pip3 install aqtinstall
-    aqt install-qt linux desktop 5.12.8 -O ${QT_INSTALL_PATH}
+    aqt install-qt linux desktop 5.15.2 --archives icu qtbase -O ${QT_INSTALL_PATH}
 }
 
 # Install depot_tools
@@ -37,7 +37,7 @@ install_oid() {
     cd "${oid_src}"
     git submodule update --init
 
-    cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${OID_INSTALL_PATH}" -DQt5_DIR=${QT_INSTALL_PATH}/5.12.8/gcc_64/lib/cmake/Qt5
+    cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${OID_INSTALL_PATH}" -DQt5_DIR=${QT_INSTALL_PATH}/5.15.2/gcc_64/lib/cmake/Qt5
     cmake --build build --config Release --target install -j
     rm -rf "${oid_src}"
 }
