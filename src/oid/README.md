@@ -1,7 +1,7 @@
 
 # OpenImageDebugger (oid)
 
-Open Image Debugger is a tool for visualizing in-memory buffers during debug sessions
+Open Image Debugger (https://github.com/OpenImageDebugger/OpenImageDebugger) is a tool for visualizing in-memory buffers during debug sessions
 
 ## Example Usage
 
