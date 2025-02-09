@@ -86,6 +86,7 @@ install_debugger_init() {
 # Install dependencies
 check_packages curl \
   git \
+  gzip \
   build-essential \
   libpython3-dev \
   python3-dev \
