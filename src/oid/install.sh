@@ -27,7 +27,7 @@ install_cmake() {
     # Minimum required version
     REQUIRED_VERSION="3.22.1"
     TARGET_VERSION="3.31.5"
-    CMAKE_URL="https://cmake.org/files/v3.27/cmake-${TARGET_VERSION}-linux-x86_64.tar.gz"
+    CMAKE_URL="https://cmake.org/files/v3.31/cmake-${TARGET_VERSION}-linux-x86_64.tar.gz"
     INSTALL_DIR="/opt/cmake-${TARGET_VERSION}-linux-x86_64"
 
     # Check if cmake is installed
