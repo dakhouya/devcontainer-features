@@ -56,7 +56,7 @@ install_cmake() {
 
 install_qt() {
     pip3 install --upgrade pip
-    pip3 install aqtinstall
+    pip3 install --user aqtinstall
     aqt install-qt linux desktop 5.15.2 --archives icu qtbase -O ${QT_INSTALL_PATH}
 }
 
