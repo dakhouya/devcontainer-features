@@ -8,7 +8,8 @@ Collection of devcontainer features
 ### Supported distributions
 - ubuntu:focal
 - ubuntu:jammy
-
+- ubuntu:noble
+- 
 ### Run tests
 Example to run tests for a specific feature
 ```bash

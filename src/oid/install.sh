@@ -23,14 +23,43 @@ check_packages() {
   fi
 }
 
-# Install qt
+install_cmake() {
+    # Minimum required version
+    REQUIRED_VERSION="3.22.1"
+    TARGET_VERSION="3.31.5"
+    CMAKE_URL="https://cmake.org/files/v3.27/cmake-${TARGET_VERSION}-linux-x86_64.tar.gz"
+    INSTALL_DIR="/opt/cmake-${TARGET_VERSION}-linux-x86_64"
+
+    # Check if cmake is installed
+    if command -v cmake &>/dev/null; then
+        INSTALLED_VERSION=$(cmake --version | head -n1 | awk '{print $3}')
+        echo "CMake version $INSTALLED_VERSION detected."
+
+        # Compare versions
+        if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$INSTALLED_VERSION" | sort -V | head -n1)" = "$REQUIRED_VERSION" ]; then
+            echo "CMake version $INSTALLED_VERSION is sufficient."
+            return 0
+        else
+            echo "CMake version $INSTALLED_VERSION is too old. Updating..."
+        fi
+    else
+        echo "CMake is not installed. Installing..."
+    fi
+
+    # Download and install CMake
+    curl -sSL "$CMAKE_URL" | tar -xzC /opt
+    ln -sf "$INSTALL_DIR/bin/"* /usr/local/bin
+
+    echo "CMake $TARGET_VERSION installed successfully."
+}
+
+
 install_qt() {
     pip3 install --upgrade pip
     pip3 install aqtinstall
     aqt install-qt linux desktop 5.15.2 --archives icu qtbase -O ${QT_INSTALL_PATH}
 }
 
-# Install depot_tools
 install_oid() {
     local oid_src="/tmp/oid-src"
     git clone  --depth 1 --branch ${OID_VERSION} https://github.com/OpenImageDebugger/OpenImageDebugger.git "${oid_src}"
@@ -55,12 +84,12 @@ install_debugger_init() {
 }
 
 # Install dependencies
-check_packages git \
+check_packages curl \
+  git \
   build-essential \
   libpython3-dev \
   python3-dev \
   python3-pip \
-  cmake \
   libx11-xcb-dev \
   libglu1-mesa-dev \
   libglib2.0-dev \
@@ -69,6 +98,7 @@ check_packages git \
   libxkbcommon-x11-0 \
   libdbus-1-3
 
+install_cmake
 install_qt
 install_oid
 install_debugger_init
